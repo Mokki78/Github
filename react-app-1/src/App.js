@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import { Home } from "./pages/home";
+import { Product } from "./pages/product";
+import { Cart } from "./pages/cart";
+import { Checkout } from "./pages/checkout";
+import { Contact } from "./pages/contact";
+import { PageNotFound } from "./pages/pagenotfound";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Routes>
+        <Route path="/" index element={<Home />} />
+        <Route path="/product:id" element={<Product />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </Container>
   );
 }
 
