@@ -6,10 +6,12 @@ import { Cart } from "./pages/cart";
 import { Checkout } from "./pages/checkout";
 import { Contact } from "./pages/contact";
 import { PageNotFound } from "./pages/pagenotfound";
+import { NavBar } from "./components/navbar";
 
 function App() {
   return (
     <Container classname="mb-4">
+      <NavBar />
       <Routes>
         <Route path="/" index element={<Home />} />
         <Route path="/product:id" element={<Product />} />
