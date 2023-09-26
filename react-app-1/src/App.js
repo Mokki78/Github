@@ -9,7 +9,7 @@ import { PageNotFound } from "./pages/pagenotfound";
 
 function App() {
   return (
-    <Container>
+    <Container classname="mb-4">
       <Routes>
         <Route path="/" index element={<Home />} />
         <Route path="/product:id" element={<Product />} />
