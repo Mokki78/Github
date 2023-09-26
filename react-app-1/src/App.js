@@ -10,7 +10,7 @@ import { NavBar } from "./components/navbar";
 
 function App() {
   return (
-    <Container classname="mb-4">
+    <Container class="mb-4">
       <NavBar />
       <Routes>
         <Route path="/" index element={<Home />} />

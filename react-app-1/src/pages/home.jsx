@@ -1,3 +1,11 @@
+import { Row, Col } from "react-bootstrap";
+
 export function Home() {
-    return <h1>Home</h1>
+    return (
+        <Row {md=4}>
+           {products.map(product => (
+                <Col></Col>
+            ))}
+        </Row>
+    )
 }
