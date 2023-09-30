@@ -3,7 +3,7 @@ import {  useParams } from "react-router-dom";
 
 
 
-export function Product() {
+export function ProductApi() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);

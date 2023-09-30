@@ -9,17 +9,18 @@ export function NavBar() {
         <NavbarBs sticky="top" className="navbar navbar-expand-lg bg-white shadow-sm mb-3">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Store</Link>
             </li>
             <li>
-              <Link to="/Product/:id">Product</Link>
+              
+              <Link to="/SingleProduct/:id">Product</Link>
             </li>
             <li>
               <Link to="/Contact">Contact</Link>
             </li>
           </ul>
           <li>
-            <Link to="/Cart">
+            <Link to="/ShoppingCart">
               <Button 
                 style={{ width: "3rem", height: "3rem", position: "relative" }}
                 variant="outline-dark"
@@ -52,7 +53,7 @@ export function NavBar() {
                     transform: "translate(25%, 25%",
                   }}
                 >
-                  3
+                  
                 </div>
               </Button>
             </Link>
