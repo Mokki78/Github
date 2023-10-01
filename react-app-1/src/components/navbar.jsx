@@ -1,9 +1,13 @@
 import { Button, Container, Navbar as NavbarBs} from "react-bootstrap";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import { StoreContext } from "../context/StoreContext";
 
 
 export function NavBar() {
+
+  const { updateCartItemCount } = useContext(StoreContext)
     return (
       <Container>
         <NavbarBs sticky="top" className="navbar navbar-expand-lg bg-white shadow-sm mb-3">
@@ -39,9 +43,8 @@ export function NavBar() {
                   transform: "translate(25%, 25%",
                 }}
               ></div>{" "}
-             
-              
-                <div
+             {updateCartItemCount()}
+               <div
                   className="rounded-circle d-flex justify-content-center bg-danger align-items-center"
                   style={{
                     color: "white",
