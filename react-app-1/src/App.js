@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import { Home } from "./pages/home/Home";
+
 import { ProductApi } from "./pages/SingleProduct";
-import { Cart } from "./pages/cart/Cart";
-import { Checkout } from "./pages/Checkout";
+
+import { Checkout } from "./pages/checkout";
 import { Contact } from "./pages/Contact";
 import { PageNotFound } from "./pages/PageNotFound";
-import { NavBar } from "./components/Navbar";
+import { NavBar } from "./components/navbar";
 import { Store } from "./pages/store/Store";
 import { StoreContextProvider } from "./context/StoreContext";
 import { ShoppingCart } from "./pages/cart/ShoppinCart";
