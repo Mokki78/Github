@@ -6,26 +6,28 @@ import { ProductApi } from "./pages/SingleProduct";
 import { Checkout } from "./pages/checkout";
 import { Contact } from "./pages/Contact";
 import { PageNotFound } from "./pages/PageNotFound";
-import { NavBar } from "./components/navbar";
+import { NavBar } from "./components/Navbar";
 import { Store } from "./pages/store/Store";
 import { StoreContextProvider } from "./context/StoreContext";
 import { ShoppingCart } from "./pages/cart/ShoppinCart";
 
 function App() {
   return (
-    <StoreContextProvider>
-      <Container class="mb-4">
-        <NavBar />
-        <Routes>
-          <Route path="/" index element={<Store />} />
-          <Route path="/singleproduct/:id" element={<ProductApi />} />
-          <Route path="/shoppingcart" element={<ShoppingCart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </Container>
-    </StoreContextProvider>
+    <>
+      <StoreContextProvider>
+        <Container class="mb-4">
+          <NavBar />
+          <Routes>
+            <Route path="/" index element={<Store />} />
+            <Route path="/singleproduct/:id" element={<ProductApi />} />
+            <Route path="/shoppingcart" element={<ShoppingCart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </Container>
+      </StoreContextProvider>
+    </>
   );
 }
 

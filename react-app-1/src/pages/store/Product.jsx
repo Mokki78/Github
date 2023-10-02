@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 
 
 export const Product = (props) => {
-    const { id , title, price, productImg } = props.data;
+    const { id , title, price, productImg} = props.data;
     const { addToCart, cartItems } = useContext(StoreContext)   
     
     const cartItemAmount = cartItems[id];
