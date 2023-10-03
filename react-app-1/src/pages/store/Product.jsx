@@ -11,7 +11,7 @@ export const Product = (props) => {
     const cartItemAmount = cartItems[id];
     
     return  (
-       <div classname="product">
+       <div className="product">
         <h3>{title}</h3>
          <img src={productImg} height="200px" alt="product"></img>
          <p>NOK {price},-</p>

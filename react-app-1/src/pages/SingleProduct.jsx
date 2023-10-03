@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import {  useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 
 
-export function ProductApi() {
+ export function SingleProduct() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -26,7 +26,7 @@ export function ProductApi() {
       }
     }
 
-    getData(`https://api.noroff.dev/api/v1/online-shop/`);
+    getData(`https://api.noroff.dev/api/v1/online-shop/${id}`);
   }, [id]);
 
   if (isLoading || !data) {
@@ -39,13 +39,23 @@ export function ProductApi() {
 
   console.log(data);
 
-    return (
-    <div>
-      <h1>id: {data.title}</h1>
-      <p>title: {data.description}</p>
-      <img src={data.imageUrl} height="200px" width="100%" alt={data.title} />
-         <div>body: {data.image}</div>
-
-    </div>
+  return (
+    <>
+    <div className="d-flex flex-column align-items-center">
+    
+      <img src={data.imageUrl} height="500px" alt={data.title}></img>
+      <h1 className="display-5">{data.title}</h1>
+      <h5 className="p-3">{data.description}</h5>
+      <p className="display-7 fw-bold my-4">NOK {data.price},-</p>
+      <p className="lead fw-bolder">Rating {data.rating && data.rating.rate}<i className="fa fa-star"></i></p>
+      <div>
+     <button className="btn btn-outline-dark">+ Add to cart</button>
+   </div>
+   </div>
+   
+   </>
+  
   );
 }
+
+export default SingleProduct;

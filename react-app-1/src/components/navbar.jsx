@@ -11,13 +11,9 @@ export function NavBar() {
       <Container>
         <NavbarBs sticky="top" className="navbar navbar-expand-lg bg-white shadow-sm mb-3">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <a className="navbar-brand" href="#">E-Store</a>
+            
             <li>
               <Link to="/">Store</Link>
-            </li>
-            <li>
-              
-              <Link to="/SingleProduct/:id">Product</Link>
             </li>
             <li>
               <Link to="/Contact">Contact</Link>
