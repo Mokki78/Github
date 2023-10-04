@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { SingleProduct } from "../src/pages/SingleProduct";
-
 import { Checkout } from "./pages/Checkout";
 import { Contact } from "./pages/Contact";
 import { PageNotFound } from "./pages/PageNotFound";

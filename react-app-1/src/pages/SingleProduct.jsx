@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
+
 
 
 
@@ -30,7 +32,20 @@ import { useParams } from "react-router-dom";
   }, [id]);
 
   if (isLoading || !data) {
-    return <div>Loading</div>;
+    return (
+      <>
+      <div className="col-md-6">
+        <Skeleton height={400} />
+      </div>
+      <div className="col-md-6">
+        <Skeleton height={50}  width={300}/>
+        <Skeleton height={75} />
+        <Skeleton height={25}  width={150}/>
+        <Skeleton height={50} />
+        <Skeleton height={150} />
+      </div>
+      </>
+    );
   }
 
   if (isError) {
@@ -42,14 +57,17 @@ import { useParams } from "react-router-dom";
   return (
     <>
     <div className="d-flex flex-column align-items-center">
-    
-      <img src={data.imageUrl} height="500px" alt={data.title}></img>
-      <h1 className="display-5">{data.title}</h1>
-      <h5 className="p-3">{data.description}</h5>
+     <img src={data.imageUrl} height="400px" alt={data.title}></img>
+     <h1 className="display-5">{data.title}</h1>
+  
       <p className="display-7 fw-bold my-4">NOK {data.price},-</p>
       <p className="lead fw-bolder">Rating {data.rating && data.rating.rate}<i className="fa fa-star"></i></p>
+      <h5 className="p-3">{data.description}</h5>
       <div>
-     <button className="btn btn-outline-dark">+ Add to cart</button>
+     <button className="btn btn-outline-dark ms-2 pb-2">+ Add to Cart</button>
+   </div>
+   <div>
+     <NavLink to="/shoppingcart" className="btn btn-outline-dark ms-2 pt-2">Go to Cart</NavLink>
    </div>
    </div>
    
