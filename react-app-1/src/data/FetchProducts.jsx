@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {  useNavigate } from "react-router-dom";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
+
+
 
 
 export const Products = () => {
@@ -7,6 +10,8 @@ export const Products = () => {
     const [ data, setData] = useState([]);
     const [filter, setFilter ] = useState(data);
     const [ loading, setLoading ] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+   
   
     let componentMounted = true;
 
@@ -18,7 +23,7 @@ export const Products = () => {
             setData(await response.clone().json())
             setFilter(await response.json());
             setLoading(false);
-          console.log(filter)
+        
         }
 
         return () => {
@@ -37,29 +42,46 @@ const Loading = () => {
     )
 }
 
-const filterProducts = (cat ) => {
-    const updatedList = data.filter((x) =>x.category === cat)
-    setFilter(updatedList)
-}
+const filteredProducts = filter.filter((product) =>
+  product.title.toLowerCase().includes(searchQuery.toLowerCase())
+);
+
+useEffect(() => {
+    console.log("searchQuery:", searchQuery);
+    console.log("data:", data);
+    console.log("filteredProducts:", filteredProducts);
+  }, [searchQuery,filteredProducts, data]);
+
 
 const letsNavigate = useNavigate()
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+} 
 
 const ShowProducts = () => {
     return (
         <>
-    <div className="buttons d-flex justify-content-center mb-5 pb-4">
-        <button className="btn btn-outline-dark" onClick={() =>setFilter(data)}>All</button>
-        <button className="btn btn-outline-dark" onClick={() =>filterProducts("electronics")}>Electronics</button>
-        <button className="btn btn-outline-dark" onClick={() =>filterProducts("cosmetics")}>Cosmetics</button>
-        <button className="btn btn-outline-dark" onClick={() =>filterProducts("toy")}>Toys</button>
-        <button className="btn btn-outline-dark" onClick={() =>filterProducts("clothes")}>Clothes</button>
-        <button className="btn btn-outline-dark" onClick={() =>filterProducts("jewelry")}>Jewelry</button>
-
-    </div>
-    {filter.map((product)=> {
+        <Container className="d-flex align-items-center  my-3 py-1">
+            <Row>
+                <Col className="col-md-12">
+        <Form className="search" onSubmit={handleSubmit}>
+        <Form.Control
+  type="text"
+  className="display-6" 
+  placeholder="Search products..."
+  value={searchQuery}
+  onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        </Form>
+        </Col>
+        </Row>
+        </Container>
+     {filteredProducts.map((product)=> {
         return(
             <>
             <div className="col-md-3 mg-5 p-3">
+         
                 <div className="card h-100 text-center p-4" key={product.id}>
                     <img src={product.imageUrl} height="250px" alt={product.title}></img>
                     <div className="card-body">
@@ -72,8 +94,10 @@ const ShowProducts = () => {
             </>
         )
     })}
+    
     </>
     )
+   
 }
      return (
             <div className="container my-3 py-1">
@@ -85,7 +109,7 @@ const ShowProducts = () => {
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    {loading ? <Loading />  : <ShowProducts />}
+                    {loading ? <Loading />  : <ShowProducts/>}
                 </div>
             </div>
            
@@ -95,8 +119,6 @@ const ShowProducts = () => {
    
     
 }
-
-
 
 
 export default Products;
