@@ -72,7 +72,9 @@ const ShowProducts = () => {
   placeholder="Search products..."
   value={searchQuery}
   onChange={(e) => setSearchQuery(e.target.value)}
+  
         />
+        <Button>Search</Button>
         </Form>
         </Col>
         </Row>
