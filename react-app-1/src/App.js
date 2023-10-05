@@ -9,12 +9,25 @@ import { Store } from "./pages/store/Store";
 import { StoreContextProvider } from "./context/StoreContext";
 import { ShoppingCart } from "./pages/cart/ShoppinCart";
 
+function Header() {
+  return (
+    <header>
+      <div></div>
+      <NavBar />
+    </header>
+  );
+}
+
+function Footer() {
+  return <footer>Website footer</footer>;
+}
+
 function App() {
   return (
     <>
       <StoreContextProvider>
         <Container class="mb-4">
-          <NavBar />
+          <Header />
 
           <Routes>
             <Route path="/" index element={<Store />} />
@@ -24,6 +37,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
+          <Footer />
         </Container>
       </StoreContextProvider>
     </>
