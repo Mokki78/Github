@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
+import { StoreContext } from "../context/StoreContext";
 
 
 
 
  export function SingleProduct() {
+  const { addToCart } = useContext(StoreContext);
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -30,6 +32,12 @@ import Skeleton from "react-loading-skeleton";
 
     getData(`https://api.noroff.dev/api/v1/online-shop/${id}`);
   }, [id]);
+
+  const handleAddToCart = () => {
+    if (data && data.id) {
+      addToCart(data.id);
+    }
+  };
 
   if (isLoading || !data) {
     return (
@@ -56,6 +64,7 @@ import Skeleton from "react-loading-skeleton";
 
   return (
     <>
+   
     <div className="d-flex flex-column align-items-center">
      <img src={data.imageUrl} height="400px" alt={data.title}></img>
      <h1 className="display-5">{data.title}</h1>
@@ -64,13 +73,14 @@ import Skeleton from "react-loading-skeleton";
       <p className="lead fw-bolder">Rating {data.rating && data.rating.rate}<i className="fa fa-star"></i></p>
       <h5 className="p-3">{data.description}</h5>
       <div>
-     <button className="btn btn-outline-dark ms-2 pb-2">+ Add to Cart</button>
+     <button className="btn btn-outline-dark ms-2 pb-2" onClick={handleAddToCart}>+ Add to Cart</button>
    </div>
    <div>
      <NavLink to="/shoppingcart" className="btn btn-outline-dark ms-2 pt-2">Go to Cart</NavLink>
    </div>
    </div>
    
+  
    </>
   
   );

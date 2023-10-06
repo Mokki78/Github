@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import {  useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
-
-
-
 export const Products = () => {
 
     const [ data, setData] = useState([]);
@@ -46,11 +43,7 @@ const filteredProducts = filter.filter((product) =>
   product.title.toLowerCase().includes(searchQuery.toLowerCase())
 );
 
-useEffect(() => {
-    console.log("searchQuery:", searchQuery);
-    console.log("data:", data);
-    console.log("filteredProducts:", filteredProducts);
-  }, [searchQuery,filteredProducts, data]);
+
 
 
 const letsNavigate = useNavigate()

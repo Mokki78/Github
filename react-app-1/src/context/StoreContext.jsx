@@ -1,7 +1,8 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { Products } from "../data/FetchProducts";
 
-export const StoreContext = createContext(null);
+
+export const StoreContext = createContext();
 
 const getDefaultCart = () => {
     let cart = {}
@@ -13,6 +14,21 @@ const getDefaultCart = () => {
 }
 export const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart());
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        async function fetchProducts() {
+          try {
+            const response = await fetch("https://api.noroff.dev/api/v1/online-shop/");
+            const data = await response.json();
+            setProducts(data); 
+          } catch (error) {
+            console.error("Error fetching product data:", error);
+          }
+        }
+    
+        fetchProducts();
+      }, []); 
 
     const getTotalCartAmount = () => {
         let totalAmount = 0;
@@ -34,14 +50,23 @@ export const StoreContextProvider = (props) => {
  }
 
     const updateCartItemCount = (newAmount, itemId) => {
-        setCartItems((prev) => ({...prev, [itemId] : newAmount}))
-    }
+        newAmount = Number(newAmount);
+  
+        if (isNaN(newAmount)) {
+    
+          return;
+        }
+      
+        setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
+      };
+   
 
-
- const contextValue = {cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount };
+ const contextValue = {cartItems,  products, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount };
 
 
     return <StoreContext.Provider value={contextValue}> 
      {props.children}
     </StoreContext.Provider>
 }
+
+export default StoreContextProvider;
