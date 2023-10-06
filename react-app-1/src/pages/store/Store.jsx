@@ -1,6 +1,5 @@
 import React from "react";
-import { Products } from "../../data/FetchProducts";
-
+import { Products} from "../../data/FetchProducts";
 
 
 export const Store = ()  => {
@@ -9,7 +8,6 @@ export const Store = ()  => {
         <div className="storeTitle"></div>
       <div className="container"> 
          <Products />
-         
          </div>
       </div>
     )
