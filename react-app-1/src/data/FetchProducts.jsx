@@ -9,8 +9,7 @@ export const Products = () => {
 
     const [ data, setData] = useState([]);
     const [ loading, setLoading ] = useState(false);
-    const [searchQuery, setSearchQuery] = useState("");
-    const [filteredProducts, setFilteredProducts] = useState([]);
+   
    
   
     let componentMounted = true;
@@ -22,7 +21,7 @@ export const Products = () => {
         if(componentMounted) {
           const products = await response.json();
             setData(products);
-            setFilteredProducts(products);
+          
             setLoading(false);
         
         }
@@ -43,63 +42,36 @@ const Loading = () => {
     )
 }
 
-const filterProducts = () => {
-  const filtered = data.filter((product) =>
-  product.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-  setFilteredProducts(filtered)
-
-}
-useEffect(() => {
-  filterProducts()
-  }, [searchQuery]);
 
 
 const letsNavigate = useNavigate()
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-} 
 
 const ShowProducts = () => {
     return (
         <>
-        <Container className="d-flex align-items-center">
-            <Row>
-                <Col className="col-md-12">
-        <Form className="search d-flex col-8" onSubmit={handleSubmit}>
-        <Form.Control
-  type="text"
-  placeholder="Search products..."
-  value={searchQuery}
-  onChange={(e) => setSearchQuery(e.target.value)}
-/>
-        </Form>
-        </Col>
-        </Row>
-        </Container>
-     {filteredProducts.map((product)=> {
+  
         return(
             <>
-        <button onClick={() => letsNavigate(`/singleproduct/${product.id}`)} className="col-md-3 mg-5 p-3">
-  <div className="card h-100 text-center p-4" key={product.id}>
-    <img src={product.imageUrl} height="250px" alt={product.title} />
+        <button onClick={() => letsNavigate(`/singleproduct/${data.id}`)} className="col-md-3 mg-5 p-3">
+  <div className="card h-100 text-center p-4" key={data.id}>
+    <img src={data.imageUrl} height="250px" alt={data.title} />
     <div className="card-body">
-      <h5 className="card-title">{product.title}</h5>
+      <h5 className="card-title">{data.title}</h5>
       <p className="card-text">
       
-        {product.discountedPrice < product.price ? (
+        {data.discountedPrice < data.price ? (
           <>
-           <span className="original-price">NOK {product.price}</span>
+           <span className="original-price">NOK {data.price}</span>
            <br />
          
             <span className="discounted-price">
-              NOW ONLY {product.discountedPrice},-
+              NOW ONLY {data.discountedPrice},-
             </span>
             <br />
             <br />
-            <span className="discount-percent">
-              {Math.round(((product.price - product.discountedPrice) / product.price) * 100)}% off
+            <span className="discount-percent bg-danger text">
+              {Math.round(((data.price - data.discountedPrice) / dats.price) * 100)}% off
             </span>
           </>
         ) : (
@@ -112,7 +84,7 @@ const ShowProducts = () => {
 </button>
    </>
         )
-    })}
+  
  
     </>
     )
