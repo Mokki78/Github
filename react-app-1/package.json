@@ -1,6 +1,6 @@
 {
   "name": "react-app-1",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -11,6 +11,7 @@
     "font-awesome": "^4.7.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
+    "react-bootstrap-typeahead": "^6.2.3",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-loading-skeleton": "^3.3.1",

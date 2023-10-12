@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import {  useNavigate } from "react-router-dom";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
+
+
+
 
 export const Products = () => {
 
     const [ data, setData] = useState([]);
-    const [filter, setFilter ] = useState(data);
     const [ loading, setLoading ] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
+    const [filteredProducts, setFilteredProducts] = useState([]);
    
   
     let componentMounted = true;
@@ -17,8 +20,9 @@ export const Products = () => {
         setLoading(true);
         const response = await fetch("https://api.noroff.dev/api/v1/online-shop/")
         if(componentMounted) {
-            setData(await response.clone().json())
-            setFilter(await response.json());
+          const products = await response.json();
+            setData(products);
+            setFilteredProducts(products);
             setLoading(false);
         
         }
@@ -39,11 +43,16 @@ const Loading = () => {
     )
 }
 
-const filteredProducts = filter.filter((product) =>
+const filterProducts = () => {
+  const filtered = data.filter((product) =>
   product.title.toLowerCase().includes(searchQuery.toLowerCase())
-);
+  );
+  setFilteredProducts(filtered)
 
-
+}
+useEffect(() => {
+  filterProducts()
+  }, [searchQuery]);
 
 
 const letsNavigate = useNavigate()
@@ -55,19 +64,16 @@ const handleSubmit = (e) => {
 const ShowProducts = () => {
     return (
         <>
-        <Container className="d-flex align-items-center  my-3 py-1">
+        <Container className="d-flex align-items-center">
             <Row>
                 <Col className="col-md-12">
-        <Form className="search" onSubmit={handleSubmit}>
+        <Form className="search d-flex col-8" onSubmit={handleSubmit}>
         <Form.Control
   type="text"
-  className="display-6" 
   placeholder="Search products..."
   value={searchQuery}
   onChange={(e) => setSearchQuery(e.target.value)}
-  
-        />
-        <Button>Search</Button>
+/>
         </Form>
         </Col>
         </Row>
@@ -75,21 +81,39 @@ const ShowProducts = () => {
      {filteredProducts.map((product)=> {
         return(
             <>
-            <div className="col-md-3 mg-5 p-3">
+        <button onClick={() => letsNavigate(`/singleproduct/${product.id}`)} className="col-md-3 mg-5 p-3">
+  <div className="card h-100 text-center p-4" key={product.id}>
+    <img src={product.imageUrl} height="250px" alt={product.title} />
+    <div className="card-body">
+      <h5 className="card-title">{product.title}</h5>
+      <p className="card-text">
+      
+        {product.discountedPrice < product.price ? (
+          <>
+           <span className="original-price">NOK {product.price}</span>
+           <br />
          
-                <div className="card h-100 text-center p-4" key={product.id}>
-                    <img src={product.imageUrl} height="250px" alt={product.title}></img>
-                    <div className="card-body">
-                        <h5 className="card-title">{product.title}</h5>
-                        <p className="card-text">NOK {product.price},-</p>
-                    </div>
-                    <button onClick={() => letsNavigate(`/singleproduct/${product.id}`)} className="btn btn-outline-dark">+ Buy now</button>
-                 </div>
-            </div>
-            </>
+            <span className="discounted-price">
+              NOW ONLY {product.discountedPrice},-
+            </span>
+            <br />
+            <br />
+            <span className="discount-percent">
+              {Math.round(((product.price - product.discountedPrice) / product.price) * 100)}% off
+            </span>
+          </>
+        ) : (
+       
+          <span className="regular-price">NOK {product.price},-</span>
+        )}
+      </p>
+    </div>
+  </div>
+</button>
+   </>
         )
     })}
-    
+ 
     </>
     )
    
