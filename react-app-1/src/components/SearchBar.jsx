@@ -1,55 +1,86 @@
-import React, { useState } from "react";
-import { AsyncTypeahead } from "react-bootstrap-typeahead";
-
+import React, { useState, useEffect } from "react";
+import {  useNavigate } from "react-router-dom";
+import { Row, Container, Form } from "react-bootstrap"
+import { Typeahead } from 'react-bootstrap-typeahead'; 
+import 'react-bootstrap-typeahead/css/Typeahead.css';
+import { Icon } from "@iconify/react"
 
 const SEARCH_URI = 'https://api.noroff.dev/api/v1/online-shop/';
 
-
 export const Search = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [options, setOptions] = useState([]);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [selectedOption, setSelectedOption] = useState([]);
 
-  const handleSearch = (query) => {
-    setIsLoading(true);
+  const letsNavigate = useNavigate();
 
-    fetch(`${SEARCH_URI}?q=${query}1&per_page=50`)
-      .then((resp) => resp.json())
-      .then(({ items }) => {
-        setOptions(items);
-        setIsLoading(false);
-      });
+  useEffect(() => {
+    const getProducts = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(`${SEARCH_URI}?q=${searchQuery}`);
+        if (response.ok) {
+          const products = await response.json();
+          setData(products);
+          setFilteredProducts(products);
+        } else {
+          console.error('Failed to fetch products:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getProducts();
+  }, [searchQuery]);
+
+  const Loading = () => {
+    return <div>Loading...</div>;
   };
 
+  const handleSelection = (selected) => {
+    if (selected.length > 0) {
+      const selectedProduct = filteredProducts.find(
+        (product) => product.title === selected[0]
+      );
+      letsNavigate(`/singleproduct/${selectedProduct.id}`);
+    }
+  };
 
-  // Bypass client-side filtering by returning `true`. Results are already
-  // filtered by the search endpoint, so no need to do it again.
-  const filterBy = () => true;
+  const searchOptions = filteredProducts.map((product) => product.title);
 
   return (
-    <AsyncTypeahead
-      filterBy={filterBy}
-      id="async-example"
-      isLoading={isLoading}
-      labelKey="login"
-      minLength={3}
-      onSearch={handleSearch}
-      options={options}
-      placeholder="Search for a product..."
-      renderMenuItemChildren={(option) => (
-        <>
-          <img
-            alt={option.login}
-            src={option.avatar_url}
-            style={{
-              height: '24px',
-              marginRight: '10px',
-              width: '24px',
-            }}
-          />
-          <span>{option.login}</span>
-        </>
-      )}
-    />
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-10 mb-5">
+        
+      
+        </div>
+      </div>
+      <div className="row justify-content-center">
+        {loading ? (
+          <Loading />
+        ) : (
+          <Container className="d-flex align-items-center">
+            <Row>
+              <Form className="search d-flex col-8" onSubmit={(e) => e.preventDefault()}>
+                <Typeahead
+                  id="product-search"
+                  options={searchOptions}
+                  selected={selectedOption}
+                  onChange={handleSelection}
+                  placeholder="Search products..."
+                />
+              </Form>
+            </Row>
+          </Container>
+        )}
+      </div>
+    </div>
   );
 };
 

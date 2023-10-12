@@ -1,7 +1,8 @@
 import { Button, Container, Navbar as NavbarBs } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-
+import { Search } from "../components/SearchBar";
+ 
 export function NavBar() {
   return (
     <Container>
@@ -12,6 +13,9 @@ export function NavBar() {
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li>
             <Link to="/">Store</Link>
+          </li>
+          <li className="navbar-search me-auto mb-4 mb-lg-10">
+            <Search />
           </li>
           <li>
             <Link to="/Contact"><Button  style={{ width: "3rem", height: "3rem", position: "relative" }}
