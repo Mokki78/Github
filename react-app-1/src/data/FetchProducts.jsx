@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+
 
 export const Products = () => {
   const [data, setData] = useState([]);
@@ -11,9 +12,7 @@ export const Products = () => {
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
-      const response = await fetch(
-        "https://api.noroff.dev/api/v1/online-shop/"
-      );
+      const response = await fetch("https://api.noroff.dev/api/v1/online-shop/");
       if (componentMounted) {
         const products = await response.json();
         setData(products);
@@ -28,7 +27,7 @@ export const Products = () => {
   }, []);
 
   const Loading = () => {
-    return <>Loading..</>;
+    return <div>Loading...</div>;
   };
 
   const letsNavigate = useNavigate();
@@ -65,7 +64,7 @@ export const Products = () => {
                             </span>
                             <br />
                             <br />
-                            <span className="discount-percent">
+                            <span className="discount-percent bg-danger">
                               {Math.round(
                                 ((product.price - product.discountedPrice) /
                                   product.price) *

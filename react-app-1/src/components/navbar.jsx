@@ -2,8 +2,13 @@ import { Button, Container, Navbar as NavbarBs } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { Search } from "../components/SearchBar";
+import { StoreContext } from "../context/StoreContext";
+import { useContext } from "react";
+
  
 export function NavBar() {
+  const {  getTotalCartAmount } = useContext(StoreContext);
+  const totalAmount = getTotalCartAmount();
   return (
     <Container>
       <NavbarBs
@@ -31,7 +36,7 @@ export function NavBar() {
               variant="outline-dark"
               className="rounded-circle"
             >
-              <Icon icon="prime:shopping-cart" height="30px" />
+              <Icon icon="prime:shopping-cart" height="30px" style={{ height: "1.5rem" }}/>{totalAmount}
             <div
                 className="rounded-circle d-flex justify-content-center bg-danger align-items-center"
                 style={{

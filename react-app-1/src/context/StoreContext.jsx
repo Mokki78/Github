@@ -1,20 +1,20 @@
 import React, { createContext, useState, useEffect } from "react";
-import { Products } from "../data/FetchProducts";
 
 export const StoreContext = createContext();
 
-const getDefaultCart = () => {
+const getDefaultCart = (products) => {
   let cart = {};
-  for (let i = 1; i < Products.length; i++) {
-    cart[i] = 0;
+  for (let i = 0; i < products.length; i++) {
+    cart[products[i].id] = 0;
   }
   return cart;
 };
-export const StoreContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState(getDefaultCart());
-  const [products, setProducts] = useState([]);
 
-  console.log(cartItems);
+export const StoreContextProvider = (props) => {
+  const [cartItems, setCartItems] = useState({});
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); 
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -22,9 +22,15 @@ export const StoreContextProvider = (props) => {
         const response = await fetch(
           "https://api.noroff.dev/api/v1/online-shop/"
         );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
         const data = await response.json();
         setProducts(data);
+        setCartItems(getDefaultCart(data));
+        setIsLoading(false); 
       } catch (error) {
+        setIsError(true); 
         console.error("Error fetching product data:", error);
       }
     }
@@ -32,20 +38,33 @@ export const StoreContextProvider = (props) => {
     fetchProducts();
   }, []);
 
+  console.log("Cart items:", cartItems);
+  console.log("Products:", products);
+
   const getTotalCartAmount = () => {
     let totalAmount = 0;
-    for (const item in cartItems) {
-      if (cartItems[item] > 0) {
-        let itemInfo = products.find((product) => product.id === Number(item));
-        totalAmount += cartItems[item] * itemInfo.price;
+    for (const itemId in cartItems) {
+      const quantity = cartItems[itemId];
+
+      if (quantity > 0) {
+        const productId = Number(itemId);
+        const itemInfo = products.find((product) => product.id === productId);
+
+        if (itemInfo) {
+          totalAmount += quantity * itemInfo.price;
+        }
       }
     }
     return totalAmount;
   };
 
   const addToCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
-    console.log(addToCart);
+    setCartItems((prev) => {
+      return {
+        ...prev,
+        [itemId]: prev[itemId] + 1,
+      };
+    });
   };
 
   const removeFromCart = (itemId) => {
@@ -70,6 +89,16 @@ export const StoreContextProvider = (props) => {
     updateCartItemCount,
     getTotalCartAmount,
   };
+
+  if (isLoading) {
+
+    return <p>Loading...</p>;
+  }
+
+  if (isError) {
+    
+    return <p>An error occurred while fetching data.</p>;
+  }
 
   return (
     <StoreContext.Provider value={contextValue}>
