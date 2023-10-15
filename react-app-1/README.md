@@ -2,42 +2,51 @@
 
 <h1>Description</h1>
 
-<p><b></p>
+<p>This is the CA assignment for Javascript Frameworks year two in Front-end development at Noroff Vocational school.
+
+We were assigned to develop an app using React Frameworks. I had some starting problems with the development, and therefor ended up making a plain React app instead of Vite, even though I heard Vite is the thing at the moment.
+ The styling is a mix of inline React-Boostrap styling and plain CSS, and I have one styled component that I am very proud of. The assignment is to make an ecommerce site using API from https://api.noroff.dev/api/v1/online-shop.
+  The shop is going to display all products on main page, you are supposed to be able to take a look at the products on a single product page, and add product to cart. The cart is to display the items, the price and discounted price, and when you go to checkout the cart should clear all items.
+  There is also supposed to be a lookahed searchbar on main page, and a contact form.
+
+  I believe I have answered the assigment, and all the links, buttons and data should all work. There it some small fixes in the design that I will look into if it remains time for it, but other then that I think I am quite happy with the result. 
+</p>
 
 <h2>Getting started</h2>
+<p>This app is built in Visual Studio Code and the repository is stored in Github. It is developed with React and React Bootstrap.
+If you would like to contribute to improve the project you are welcome.The steps to do so is to first visit Github and make a forked repo from the main.
+The next step si to install the dependencies that I have used for this project. </p>
+<p>Link to Github project: https://github.com/Mokki78/Github</p>
 
-<h3>Contributing</h3>
+<h3>The dependecies:</h3>
+<ul>
+<li>install npm</li>
+<li>react</li>
+<li>react-dom</li>
+<li>react-dom-router</li>
+<li>react-bootstrap</li>
+<li>react-bootstrap-icons</li>
+<li>react-bootstrap-typeahead</li>
+<li>react-scripts</li>
+<li>react-icons</li>
+<li>styled-components</li>
+<li>bootstrap</li>
+<li>prettier</li>
+<li>ESlint</li>
+<li>web.vitrals</li>
 
-
-<h3>Installing</h3>
-
-<p>This website is built in Visual Studio Code and the repository is stored in Github. It is developed with React js and React Bootstrap.</p>
-
-<ol>
-<li>Clone the repo:</li>
-<p></p>
-
-<li> Install the dependecies:</li>
-<p></p>
-
-To contribute please make a forked repo from the main.
-
-</ol>
+</ul>
 
 <h3>Contact</h3>
 <p>If you would like to contact me you can reach me here:
 
 https://www.linkedin.com/in/monika-sæle-2a80918a/</p>
 
-<h3>License</h3>
 
-<p></p>
 
-<p>https://opensource.org/license/mit/</p<>
+<h3>Acknowledgements</h3>
 
-<h3>Acknowlegdments</h3>
-
-<p>For this project I have had the pleasure of getting tips and inspiration from these websites:</p>
+<p>For this project I have had the pleasure of getting tips and inspiration from these websites and youtube channels:</p>
 
 <p>
 <ul>

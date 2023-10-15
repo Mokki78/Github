@@ -7,11 +7,14 @@ import { StoreContext } from "../context/StoreContext";
 import { useContext } from "react";
 
 export function NavBar() {
-  const { totalItemCount} = useContext(StoreContext);
-  
+  const { totalItemCount } = useContext(StoreContext);
+
   return (
     <Container>
-      <NavbarBs sticky="top" className="navbar navbar-expand-lg bg-white shadow-sm">
+      <NavbarBs
+        sticky="top"
+        className="navbar navbar-expand-lg bg-white shadow-sm"
+      >
         <Link to="/" style={{ paddingLeft: 13, textDecoration: "none" }}>
           <Button
             style={{
@@ -63,7 +66,7 @@ export function NavBar() {
                   transform: "translate(25%, 25%)",
                 }}
               >
-                { totalItemCount()}
+                {totalItemCount()}
               </div>
             </Button>
           </Link>

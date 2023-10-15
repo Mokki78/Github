@@ -45,7 +45,10 @@ export function SingleProduct() {
   if (isLoading || !data.id) {
     return (
       <>
-      <div className="d-flex justify-content-center align-items-center"><Loader /></div>;
+        <div className="d-flex justify-content-center align-items-center">
+          <Loader />
+        </div>
+        ;
       </>
     );
   }
@@ -71,22 +74,23 @@ export function SingleProduct() {
             <h1 className="display-5">{data.title}</h1>
             <h5 className="p-3">{data.description}</h5>
             <span className="discount-percent bg-danger">
-                  {Math.round(
-                    ((data.price - data.discountedPrice) / data.price) * 100
-                  )}
-                  % off
-                </span>
+              {Math.round(
+                ((data.price - data.discountedPrice) / data.price) * 100
+              )}
+              % off
+            </span>
 
             {data.discountedPrice < data.price ? (
               <>
-                <span className="original-price">Original price {data.price}</span>
+                <span className="original-price">
+                  Original price {data.price}
+                </span>
                 <br />
                 <span className="discounted-price">
-                 <strong>Now only {data.discountedPrice},-</strong>
+                  <strong>Now only {data.discountedPrice},-</strong>
                 </span>
                 <br />
                 <br />
-             
               </>
             ) : (
               <span className="regular-price">NOK {data.price},-</span>
