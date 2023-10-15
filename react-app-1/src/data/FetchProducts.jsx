@@ -4,8 +4,6 @@ import { Container, Row } from "react-bootstrap";
 import * as ButtonStyle from "../styled.components/Button.style";
 import { Loader } from "../components/Spinner";
 
-
-
 export const Products = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -32,10 +30,12 @@ export const Products = () => {
   }, []);
 
   const Loading = () => {
-    return <div className="d-flex justify-content-center align-items-center"><Loader /></div>;
+    return (
+      <div className="d-flex justify-content-center align-items-center">
+        <Loader />
+      </div>
+    );
   };
-
-
 
   const letsNavigate = useNavigate();
 
@@ -59,16 +59,12 @@ export const Products = () => {
                     />
                     <div>
                       <h5>{product.title}</h5>
-                      <p >
+                      <p>
                         {product.discountedPrice < product.price ? (
                           <>
-                            <span>
-                              Original price NOK {product.price}
-                            </span>
+                            <span>Original price NOK {product.price}</span>
                             <br />
-                            <span>
-                              NOW ONLY {product.discountedPrice},-
-                            </span>
+                            <span>NOW ONLY {product.discountedPrice},-</span>
                             <br />
                             <br />
                             <span className="discount-percent bg-danger">

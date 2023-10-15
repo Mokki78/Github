@@ -15,8 +15,7 @@ export const StoreContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [ cartItemCount, setCartItemCount] = useState(false);
-  
+  const [cartItemCount, setCartItemCount] = useState(false);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -58,7 +57,6 @@ export const StoreContextProvider = (props) => {
   };
 
   const getTotalCartItemCount = () => {
-    
     let totalCount = 0;
     for (const itemId in cartItems) {
       totalCount += cartItems[itemId];
@@ -93,7 +91,6 @@ export const StoreContextProvider = (props) => {
     setCartItems(getDefaultCart(products));
     setCartItemCount(0);
   };
-
 
   const contextValue = {
     cartItems,

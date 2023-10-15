@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Row, Container, Form } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
-import { Icon } from "@iconify/react";
 
 const SEARCH_URI = "https://api.noroff.dev/api/v1/online-shop/";
 
@@ -66,7 +65,7 @@ export const Search = () => {
           <Container className="d-flex align-items-center">
             <Row>
               <Form
-                className="search d-flex col-12"  // Changed class from col-8 to col-12
+                className="search d-flex col-12"
                 onSubmit={(e) => e.preventDefault()}
               >
                 <Typeahead

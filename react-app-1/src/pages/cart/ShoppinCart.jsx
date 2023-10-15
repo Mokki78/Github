@@ -8,22 +8,17 @@ export const ShoppingCart = () => {
   const { cartItems, products, clearCart } = useContext(StoreContext);
   const navigate = useNavigate();
 
-
-  let originalPrice = 0;
-  let discountedPrice = 0;
+ 
   let savings = 0;
 
- 
   const totalAmount = Object.keys(cartItems).reduce((total, productId) => {
     const product = products.find((p) => p.id === productId);
     const quantity = cartItems[productId];
     if (product && quantity > 0) {
       total += quantity * product.price;
 
-     
       if (product.discountedPrice < product.price) {
-        originalPrice += quantity * product.price;
-        discountedPrice += quantity * product.discountedPrice;
+    
         savings += quantity * (product.price - product.discountedPrice);
       }
     }
@@ -70,20 +65,13 @@ export const ShoppingCart = () => {
                     height="130px"
                     alt={product.title}
                   />
-                  <br />
-
-                  <br />
-                
-                  <p>
-                    Original Price: NOK {formatCurrency(product.price)},-
-                  </p>
-                  <p>
-                    Discounted Price: NOK {formatCurrency(product.discountedPrice)},-
-                  </p>
-                  <p>
-                    Savings: NOK {formatCurrency(product.price - product.discountedPrice)},-
-                  </p>
                   <CartItem data={product} />
+                  <p>Price: NOK {formatCurrency(product.discountedPrice)},-</p>
+                  <p>
+                    Savings: NOK{" "}
+                    {formatCurrency(product.price - product.discountedPrice)},-
+                  </p>
+
                   <strong>
                     Total Price: NOK{" "}
                     {formatCurrency(product.price * cartItems[productId])},-
@@ -106,28 +94,14 @@ export const ShoppingCart = () => {
             className="d-flex flex-row p-3"
             style={{ border: "1px solid black" }}
           >
-            <div className="px-5 bg-white pt-3">
+            <div className="d-flex flex-column px-5 bg-white pt-3">
               <strong>Subtotal: {formatCurrency(totalAmount)},-</strong>
-              <br />
-              
-            <div className="prices">
-              <span>
-                Original Price: NOK {formatCurrency(originalPrice)},-
-              </span>
-              <br />
-              <span>
-                Discounted Price: NOK {formatCurrency(discountedPrice)},-
-              </span>
-              </div>
-              <br />
-              <span>
-                Savings: NOK {formatCurrency(savings)},-
-              </span>
+           <span>Savings: NOK {formatCurrency(savings)},-</span>
             </div>
 
-            <div className="p-1">
+            <div className="cart-buttons-container">
               <button
-                className="btn btn-outline-dark"
+                className="btn btn-outline-dark cart-buttons"
                 onClick={() => {
                   clearCart();
                   navigate("/checkout");
@@ -138,7 +112,7 @@ export const ShoppingCart = () => {
             </div>
             <div className="p-1">
               <button
-                className="btn btn-outline-dark"
+                className="btn btn-outline-dark cart-buttons"
                 onClick={() => navigate("/")}
               >
                 Continue shopping
