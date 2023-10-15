@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -26,12 +25,9 @@ export function Contact() {
       </div>
       <hr />
 
-      <div
-        className="d-flex justify-content-center align-items-center pt-5 pb-md-5 m-5 me-auto"
-        style={{ border: "1px solid black" }}
-      >
+      <div>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Container className="d-flex flex-column me-auto">
+          <Container className="p-5" style={{ border: "1px solid black" }}>
             <Row>
               <Form.Group as={Col} md="8" controlId="textInput">
                 <Form.Label>Subject</Form.Label>
@@ -94,13 +90,13 @@ export function Contact() {
               />
             </Form.Group>
             <Form.Group as={Col} md="8">
-              <Button
+              <button
                 className="btn btn-outline-dark"
                 type="submit"
-                style={{ marginTop: "10px" }} // Adjust the margin to create space
+                style={{ marginTop: "10px" }}
               >
                 Submit form
-              </Button>
+              </button>
             </Form.Group>
           </Container>
         </Form>

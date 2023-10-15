@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
 import * as ButtonStyle from "../styled.components/Button.style";
+import { Loader } from "../components/Spinner";
+
+
 
 export const Products = () => {
   const [data, setData] = useState([]);
@@ -29,8 +32,10 @@ export const Products = () => {
   }, []);
 
   const Loading = () => {
-    return <div>Loading...</div>;
+    return <div className="d-flex justify-content-center align-items-center"><Loader /></div>;
   };
+
+
 
   const letsNavigate = useNavigate();
 
@@ -43,7 +48,7 @@ export const Products = () => {
               return (
                 <ButtonStyle.Button
                   onClick={() => letsNavigate(`/singleproduct/${product.id}`)}
-                  className="col-md-3 mg-5 p-3"
+                  className="col-md-3 p-3"
                   key={product.id}
                 >
                   <div className="card h-100 text-center p-4">
@@ -52,16 +57,16 @@ export const Products = () => {
                       height="250px"
                       alt={product.title}
                     />
-                    <div className="card-body">
-                      <h5 className="card-title">{product.title}</h5>
-                      <p className="card-text">
+                    <div>
+                      <h5>{product.title}</h5>
+                      <p >
                         {product.discountedPrice < product.price ? (
                           <>
-                            <span className="original-price">
-                              NOK {product.price}
+                            <span>
+                              Original price NOK {product.price}
                             </span>
                             <br />
-                            <span className="discounted-price">
+                            <span>
                               NOW ONLY {product.discountedPrice},-
                             </span>
                             <br />
