@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# The CA for Javascript Frameworks for Monika Saele alias Mokki78 in github
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1>Description</h1>
 
-## Available Scripts
+<p><b></p>
 
-In the project directory, you can run:
+<h2>Getting started</h2>
 
-### `npm start`
+<h3>Contributing</h3>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h3>Installing</h3>
 
-### `npm test`
+<p>This website is built in Visual Studio Code and the repository is stored in Github. It is developed with React js and React Bootstrap.</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<ol>
+<li>Clone the repo:</li>
+<p></p>
 
-### `npm run build`
+<li> Install the dependecies:</li>
+<p></p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To contribute please make a forked repo from the main.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+</ol>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h3>Contact</h3>
+<p>If you would like to contact me you can reach me here:
 
-### `npm run eject`
+https://www.linkedin.com/in/monika-sæle-2a80918a/</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<h3>License</h3>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p></p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<p>https://opensource.org/license/mit/</p<>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<h3>Acknowlegdments</h3>
 
-## Learn More
+<p>For this project I have had the pleasure of getting tips and inspiration from these websites:</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p>
+<ul>
+<li>https://www.youtube.com/watch?v=AmIdY1Eb8tY</li>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<li>https://www.youtube.com/watch?v=lATafp15HWA</li>
 
-### Code Splitting
+<li>https://www.npmjs.com/package/react-currency-format</li>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<li>https://blog.logrocket.com/modern-api-data-fetching-methods-react/</li>
 
-### Analyzing the Bundle Size
+<li>https://totheroot.io/article/build-your-own-shopping-cart-with-react-hooks-part-1</li>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<li>https://www.youtube.com/watch?v=lATafp15HWA. Shopping cart </li>
 
-### Making a Progressive Web App
+<li>https://www.youtube.com/watch?v=qEefUHvHoW4.  Search function</li>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<li>https://bobbyhadz.com/blog/react-router-get-id-from-url#:~:text=Use%20the%20useParams()%20hook,matched%20by%20the%20Route%20path.&text=Copied! More functions in end of article, links.</li>
 
-### Advanced Configuration
+<li>https://www.section.io/engineering-education/how-to-create-a-simple-rest-api-using-typescript-and-nodejs/ Fetch api</li>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<li>https://kentcdodds.com/blog/using-fetch-with-type-script typescript api</li>
 
-### Deployment
+<li>https://www.youtube.com/watch?v=tEMrD9t85v4 react cart</li>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<li>https://www.youtube.com/watch?v=tEMrD9t85v4</li>
 
-### `npm run build` fails to minify
+<li>https://www.youtube.com/watch?v=lfm_Hu0hEms</li>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<li>https://www.youtube.com/watch?v=sWVgMcz8Q44 searcher</li>
+
+<li>https://www.youtube.com/watch?v=ZoayCCDHFiI search</li>
+
+<li>https://www.youtube.com/watch?v=x0cfAd3KwQc search</li>
+
+<li>https://www.youtube.com/watch?v=xAqCEBFGdYk search</li>
+
+<li>https://medium.com/geekculture/create-a-simple-search-component-in-react-js-using-react-hooks-710c1dfe8b58#:~:text=Firstly%2C%20we%20import%20useState%20from,list%20received%20from%20the%20parent.</li>
+
+<li>https://www.freecodecamp.org/news/search-and-filter-component-in-reactjs/
+Search api</li>
+
+<li>https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation</li>
+
+<li>https://digitalinspiration.com/docs/file-upload-forms/regex-validation</li>
+
+<li>https://jessywlee.medium.com/filter-search-results-by-keywords-javascript-react-js-522568b16d2e</li>
+
+<li>https://www.linkedin.com/pulse/building-search-bar-filter-data-from-json-file-reactjs-ajeet-achal</li>
+
+<li>https://www.cuemath.com/commercial-math/discounts/</li>
+
+<li>https://www.youtube.com/watch?v=ZawAwPYrxGA</li>
+
+</p>

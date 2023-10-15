@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
-
+import * as ButtonStyle from "../styled.components/Button.style";
 
 export const Products = () => {
   const [data, setData] = useState([]);
@@ -12,7 +12,9 @@ export const Products = () => {
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
-      const response = await fetch("https://api.noroff.dev/api/v1/online-shop/");
+      const response = await fetch(
+        "https://api.noroff.dev/api/v1/online-shop/"
+      );
       if (componentMounted) {
         const products = await response.json();
         setData(products);
@@ -39,7 +41,7 @@ export const Products = () => {
           <Row>
             {filteredProducts.map((product) => {
               return (
-                <button
+                <ButtonStyle.Button
                   onClick={() => letsNavigate(`/singleproduct/${product.id}`)}
                   className="col-md-3 mg-5 p-3"
                   key={product.id}
@@ -81,7 +83,7 @@ export const Products = () => {
                       </p>
                     </div>
                   </div>
-                </button>
+                </ButtonStyle.Button>
               );
             })}
           </Row>
