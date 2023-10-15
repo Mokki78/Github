@@ -1,0 +1,13 @@
+.mainButton {
+  background-color: black;
+  color: white;
+  padding: 5px 40px;
+  cursor: pointer;
+  border-radius: 18px;
+  transition: background-color linear 800ms;
+}
+
+.mainButton:hover {
+  background-color: red;
+  color: white;
+}
