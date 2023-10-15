@@ -5,28 +5,28 @@ import * as ButtonStyle from "../styled.components/Button.style";
 import { Loader } from "../components/Spinner";
 
 export const Products = () => {
-  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  let componentMounted = true;
 
   useEffect(() => {
+    let componentMounted = true; 
+
     const getProducts = async () => {
       setLoading(true);
-      const response = await fetch(
-        "https://api.noroff.dev/api/v1/online-shop/"
-      );
+      const response = await fetch("https://api.noroff.dev/api/v1/online-shop/");
+      
       if (componentMounted) {
         const products = await response.json();
-        setData(products);
         setFilteredProducts(products);
         setLoading(false);
       }
-      return () => {
-        componentMounted = false;
-      };
     };
+
     getProducts();
+
+    return () => {
+      componentMounted = false;
+    };
   }, []);
 
   const Loading = () => {
@@ -71,7 +71,7 @@ export const Products = () => {
                               {Math.round(
                                 ((product.price - product.discountedPrice) /
                                   product.price) *
-                                  100
+                                100
                               )}
                               % off
                             </span>
@@ -107,5 +107,3 @@ export const Products = () => {
     </div>
   );
 };
-
-export default Products;
