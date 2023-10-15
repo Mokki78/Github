@@ -13,7 +13,7 @@ const getDefaultCart = (products) => {
 export const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
@@ -28,9 +28,9 @@ export const StoreContextProvider = (props) => {
         const data = await response.json();
         setProducts(data);
         setCartItems(getDefaultCart(data));
-        setIsLoading(false); 
+        setIsLoading(false);
       } catch (error) {
-        setIsError(true); 
+        setIsError(true);
         console.error("Error fetching product data:", error);
       }
     }
@@ -91,12 +91,10 @@ export const StoreContextProvider = (props) => {
   };
 
   if (isLoading) {
-
     return <p>Loading...</p>;
   }
 
   if (isError) {
-    
     return <p>An error occurred while fetching data.</p>;
   }
 

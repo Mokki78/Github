@@ -8,6 +8,8 @@ import { NavBar } from "./components/Navbar";
 import { Store } from "./pages/store/Store";
 import { StoreContextProvider } from "./context/StoreContext";
 import { ShoppingCart } from "./pages/cart/ShoppinCart";
+import { Footer } from "../src/components/Footer";
+
 
 function Header() {
   return (
@@ -18,9 +20,7 @@ function Header() {
   );
 }
 
-function Footer() {
-  return <footer>Website footer</footer>;
-}
+
 
 function App() {
   return (
@@ -39,7 +39,7 @@ function App() {
           </Routes>
           <Footer />
         </Container>
-      </StoreContextProvider>
+      </StoreContextProvider>  
     </>
   );
 }

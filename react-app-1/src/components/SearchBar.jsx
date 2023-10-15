@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-import {  useNavigate } from "react-router-dom";
-import { Row, Container, Form } from "react-bootstrap"
-import { Typeahead } from 'react-bootstrap-typeahead'; 
-import 'react-bootstrap-typeahead/css/Typeahead.css';
-import { Icon } from "@iconify/react"
+import { useNavigate } from "react-router-dom";
+import { Row, Container, Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { Typeahead } from "react-bootstrap-typeahead";
+import "react-bootstrap-typeahead/css/Typeahead.css";
+import { Icon } from "@iconify/react";
 
-const SEARCH_URI = 'https://api.noroff.dev/api/v1/online-shop/';
+const SEARCH_URI = "https://api.noroff.dev/api/v1/online-shop/";
 
 export const Search = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedOption, setSelectedOption] = useState([]);
 
@@ -26,10 +27,10 @@ export const Search = () => {
           setData(products);
           setFilteredProducts(products);
         } else {
-          console.error('Failed to fetch products:', response.statusText);
+          console.error("Failed to fetch products:", response.statusText);
         }
       } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error("Error fetching products:", error);
       } finally {
         setLoading(false);
       }
@@ -56,10 +57,7 @@ export const Search = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-lg-10 mb-5">
-        
-      
-        </div>
+        <div className="col-lg-10 mb-5"></div>
       </div>
       <div className="row justify-content-center">
         {loading ? (
@@ -67,13 +65,19 @@ export const Search = () => {
         ) : (
           <Container className="d-flex align-items-center">
             <Row>
-              <Form className="search d-flex col-8" onSubmit={(e) => e.preventDefault()}>
+              <Form
+                className="search d-flex col-12"  // Changed class from col-8 to col-12
+                onSubmit={(e) => e.preventDefault()}
+              >
                 <Typeahead
                   id="product-search"
                   options={searchOptions}
                   selected={selectedOption}
                   onChange={handleSelection}
                   placeholder="Search products..."
+                  className="me-2"
+                  icon="prime:search"
+                  height="30px"
                 />
               </Form>
             </Row>

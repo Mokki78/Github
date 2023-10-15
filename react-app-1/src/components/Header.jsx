@@ -1,14 +1,12 @@
 import { NavBar } from "../components/Navbar";
 
-export  function Header() {
+export function Header() {
+  return (
+    <header>
+      <div></div>
+      <NavBar />
+    </header>
+  );
+}
 
- return (
-      <header>
-        <div></div>
-        <NavBar />
-      </header>
-    );
-  }
-
-  export default Header;
-  
+export default Header;
