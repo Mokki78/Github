@@ -23,7 +23,7 @@ For Javascript Frameworks we have learned about the Framework React, since this 
  <h2>Built With</h2>
  <ul>
   <li>React v18.2.0"</li>
-   <li>React Bootstrap</li>
+   <li>React Bootstrap v2.8.0</li>
   
  </ul>
 
