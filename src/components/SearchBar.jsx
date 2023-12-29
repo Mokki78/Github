@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Row, Container, Form } from "react-bootstrap";
+import { Container, Row, Form } from "react-bootstrap";
 
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
@@ -8,10 +8,12 @@ import "react-bootstrap-typeahead/css/Typeahead.css";
 const SEARCH_URI = "https://api.noroff.dev/api/v1/online-shop/";
 
 export const Search = () => {
-  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  // eslint-disable-next-line no-unused-vars
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [selectedOption, setSelectedOption] = useState([]);
 
   const letsNavigate = useNavigate();
@@ -23,7 +25,6 @@ export const Search = () => {
         const response = await fetch(`${SEARCH_URI}?q=${searchQuery}`);
         if (response.ok) {
           const products = await response.json();
-          setData(products);
           setFilteredProducts(products);
         } else {
           console.error("Failed to fetch products:", response.statusText);

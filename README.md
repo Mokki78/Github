@@ -1,27 +1,43 @@
 # The CA for Javascript Frameworks for Monika Saele alias Mokki78 in github
+<img width="1525" alt="react" src="https://github.com/Mokki78/Github/assets/100276996/b4051362-468f-4bf6-afc3-9b17b1ef846b">
+<p>This is a sceen shot of the main page of the result- an ecommerce site.</p>
 
-<h1>Description</h1>
+<h2>Description</h2>
 
-<p>This is the CA assignment for Javascript Frameworks year two in Front-end development at Noroff Vocational school.
+<p>This is the CA assignment for Javascript Frameworks year two in Front-end development at Noroff school of Technology and Digital media.
 
-We were assigned to develop an app using React Frameworks. I had some starting problems with the development, and therefor ended up making a plain React app instead of Vite, even though I heard Vite is the thing at the moment.
- The styling is a mix of inline React-Boostrap styling and plain CSS, and I have one styled component that I am very proud of. The assignment is to make an ecommerce site using API from https://api.noroff.dev/api/v1/online-shop.
-  The shop is going to display all products on main page, you are supposed to be able to take a look at the products on a single product page, and add product to cart. The cart is to display the items, the price and discounted price, and when you go to checkout the cart should clear all items.
-  There is also supposed to be a lookahed searchbar on main page, and a contact form.
+For Javascript Frameworks we have learned about the Framework React, since this is the most popular and widely used framework at the moment. The assignment is therefor to design and develop a react app.
 
-  I believe I have answered the assigment, and all the links, buttons and data should all work. There it some small fixes in the design that I will look into if it remains time for it, but other then that I think I am quite happy with the result. 
-</p>
+ <b>The requirements for the app:</b>
+
+ <ul>
+  <li>display all products on main/index page.</li>
+   <li>user should be able to view single products using id.</li>
+   <li>the user should be able to add products to cart.</li>
+   <li>the cart is to display items, price and discounted price.</li>
+   <li>when a user goes to checkout, the cart should clear all items.</li>
+   <li>there should be a lookahead searchbar on the main/index page.</li>
+   <li>there should be a contact form.</li>
+ </ul>
+
+ <h2>Built With</h2>
+ <ul>
+  <li>React v18.2.0"</li>
+   <li>React Bootstrap v2.8.0</li>
+  
+ </ul>
 
 <h2>Getting started</h2>
-<p>This app is built in Visual Studio Code and the repository is stored in Github. It is developed with React and React Bootstrap.
-If you would like to contribute to improve the project you are welcome.The steps to do so is to first visit Github and make a forked repo from the main.
-The next step si to install the dependencies that I have used for this project. </p>
-<p>Link to Github project: https://github.com/Mokki78/Github</p>
-
-<h3>The dependecies:</h3>
+<h3>Installing</h3>
+ <ol>
+<li>Clone the repo:</li>
+  <p> git clone git@github.com:/Mokki78/Github</p>
+  <li>Install the dependencies:</li>
+  <p>npm install</p>
+ </ol>
+<h3>The dependecies used for this project:</h3>
 <ul>
-<li>install npm</li>
-<li>react</li>
+ <li>react</li>
 <li>react-dom</li>
 <li>react-dom-router</li>
 <li>react-bootstrap</li>
@@ -33,9 +49,13 @@ The next step si to install the dependencies that I have used for this project. 
 <li>bootstrap</li>
 <li>prettier</li>
 <li>ESlint</li>
-<li>web.vitrals</li>
-
 </ul>
+ 
+<h3>Running</h3>
+<p>npm run start</p>
+
+<h3>Contribute</h3>
+<p>If you would like to contribute to the project please fork the repo and see the current state of the app and the codes. Then make your suggested improvements for me to review. </p>
 
 <h3>Contact</h3>
 <p>If you would like to contact me you can reach me here:
