@@ -55,6 +55,7 @@ export const Products = () => {
                     <img
                       src={product.imageUrl}
                       height="250px"
+                    
                       alt={product.title}
                     />
                     <div>

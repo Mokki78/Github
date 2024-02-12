@@ -26,6 +26,17 @@ code {
   color: white;
 }
 
+.single-image {
+  display: flex;
+  padding: 50px;
+  max-height: 700px;
+  justify-content: center;
+}
+
+#single-container {
+  display: flex;
+}
+
 .style-link {
   color: red;
 }
@@ -88,8 +99,6 @@ code {
 
 .cart-buttons {
   margin: 2px;
-
-
 }
 
 @media screen and (max-width: 800px) {
@@ -114,5 +123,36 @@ code {
   .cart-buttons {
     flex-direction: row;
     font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #single-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0%;
+    padding: 1px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #single-title {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #single-text {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .single-image {
+    display: flex;
+    max-height: 300px;
+    border: 1px solid black;
+    padding: 20px;
+    
   }
 }

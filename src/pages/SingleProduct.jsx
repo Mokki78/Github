@@ -59,20 +59,20 @@ export function SingleProduct() {
 
   return (
     <>
-      <Container style={{ border: "1px solid black" }} className="mt-5 mb-5">
-        <Row>
-          <Col className="col-10-md d-flex flex-column align-items-center  pt-5 pb-md-5">
+      <Container style={{ border: "1px solid black" }} className="mt-5 mb-5 d-flex">
+        <Row id="single-container">
+          <Col className="single-image">
             <img
               src={data.imageUrl}
               className="img-fluid"
               alt={data.title}
               maxWidth="150px"
-              style={{ minWidth: "150px" }}
+            
             />
           </Col>
-          <Col className="col-10-md d-flex flex-column align-items-center pt-2 pb-md-5 m-5 bg-white">
-            <h1 className="display-5">{data.title}</h1>
-            <h5 className="p-3">{data.description}</h5>
+          <Col className="col-10-md d-flex flex-column align-items-center pt-2 pb-md-5 m-md-5  bg-white" id="single-product">
+            <h1 className="display-5" id="single-title">{data.title} </h1>
+            <h5 className="p-3" id="single-text">{data.description}</h5>
             <span className="discount-percent bg-danger">
               {Math.round(
                 ((data.price - data.discountedPrice) / data.price) * 100
