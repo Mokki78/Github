@@ -8,7 +8,6 @@ export const ShoppingCart = () => {
   const { cartItems, products, clearCart } = useContext(StoreContext);
   const navigate = useNavigate();
 
- 
   let savings = 0;
 
   const totalAmount = Object.keys(cartItems).reduce((total, productId) => {
@@ -18,7 +17,6 @@ export const ShoppingCart = () => {
       total += quantity * product.price;
 
       if (product.discountedPrice < product.price) {
-    
         savings += quantity * (product.price - product.discountedPrice);
       }
     }
@@ -66,15 +64,15 @@ export const ShoppingCart = () => {
                     alt={product.title}
                   />
                   <CartItem data={product} />
-                  <p>Price: NOK {formatCurrency(product.discountedPrice)},-</p>
+                  <p>Price: NOK {formatCurrency(product.price)},-</p>
                   <p>
                     Savings: NOK{" "}
-                    {formatCurrency(product.price - product.discountedPrice)},-
+                    {formatCurrency(savings)},-
                   </p>
 
                   <strong>
                     Total Price: NOK{" "}
-                    {formatCurrency(product.price * cartItems[productId])},-
+                    {formatCurrency(totalAmount - savings)},-
                   </strong>
                 </div>
                 <hr />
@@ -95,8 +93,8 @@ export const ShoppingCart = () => {
             style={{ border: "1px solid black" }}
           >
             <div className="d-flex flex-column px-5 bg-white pt-3">
-              <strong>Subtotal: {formatCurrency(totalAmount)},-</strong>
-           <span>Savings: NOK {formatCurrency(savings)},-</span>
+              <strong>Subtotal: {formatCurrency(totalAmount - savings)},-</strong>
+              <span>Savings: NOK {formatCurrency(savings)},-</span>
             </div>
 
             <div className="cart-buttons-container">
