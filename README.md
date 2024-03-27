@@ -11,13 +11,13 @@ For Javascript Frameworks we have learned about the Framework React, since this 
  <b>The requirements for the app:</b>
 
  <ul>
-  <li>display all products on main/index page.</li>
-   <li>user should be able to view single products using id.</li>
-   <li>the user should be able to add products to cart.</li>
-   <li>the cart is to display items, price and discounted price.</li>
-   <li>when a user goes to checkout, the cart should clear all items.</li>
-   <li>there should be a lookahead searchbar on the main/index page.</li>
-   <li>there should be a contact form.</li>
+  <li>Display all products on main/index page</li>
+   <li>User should be able to view single products using id</li>
+   <li>The user should be able to add products to cart</li>
+   <li>The cart is to display items, price and discounted price</li>
+   <li>When a user goes to checkout, the cart should clear all items</li>
+   <li>There should be a lookahead searchbar on the main/index page</li>
+   <li>There should be a contact form</li>
  </ul>
 
  <h2>Built With</h2>
